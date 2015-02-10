@@ -18,7 +18,7 @@ import rtCampPageObject.SecurityQuestionLogic;
 public class VerifyRegistrationProcess {
 	//to create a instance of webdriver
 	private WebDriver driver;
-
+	int i=0;
 	@BeforeMethod
 	public void setUp() throws Exception {
 		//initilize the firefox
@@ -32,6 +32,14 @@ public class VerifyRegistrationProcess {
 
 	@AfterMethod
 	public void tearDown() throws Exception {
+		if(i==1)
+		{
+			System.out.println("Successfully verify");
+		}
+		else
+		{
+			System.out.println("Test Fail!!!!");
+		}
 		driver.close();
 	}
 
@@ -80,8 +88,7 @@ public class VerifyRegistrationProcess {
 		//verify the error message
 		assertEquals("Sorry, that username already exists!",driver.findElement(By.xpath("//*[@id='basic-details-section']/div[1]")).getText());
 		assertEquals("Sorry, that email address is already used!",driver.findElement(By.xpath("//*[@id='basic-details-section']/div[2]")).getText());
-		
-		System.out.println("Success");
+		i++;
 	}
 
 }
