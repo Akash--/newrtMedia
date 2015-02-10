@@ -10,28 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.LoadableComponent;
 
 public class Login  {
-	
-	@FindBy(linkText="Log in")
-	WebElement login;
-	
-	@FindBy(id="user_name")
-	WebElement name;
-	
-	@FindBy(id="user_pass")
-	WebElement pass;
-	
-	@FindBy(id="wp-submit")
-	WebElement loginsubmit;
-	
-     @FindBy(xpath="//*[@id='wp-admin-bar-my-account']/a")
-     WebElement Akash;
-	
-	
-	public Login(WebDriver driver)
-	{
-		PageFactory.initElements(driver,this);
-		
-	}
+
 	public static void login(WebDriver driver)
 	{
 		driver.findElement(By.linkText("Log in")).click();

@@ -18,7 +18,7 @@ import rtCampPageObject.Login;
 
 public class ValidLog {
 	private static WebDriver driver;
-
+	static int i=0;
 	@BeforeMethod
 	public void setUp() throws Exception {
 		        //initilize the firefox
@@ -30,7 +30,16 @@ public class ValidLog {
 	}
 
 	@AfterMethod
-	public static void logout() throws Exception {
+	public  void tearDown() throws Exception {
+		if(i==1)
+		{
+			System.out.println("Login success!!");
+		}
+		else
+		{
+			System.out.println("Test Fail!!!!");
+		}
+		
 		  Login.logout(driver);		
 		//driver.quit();
 	}
@@ -39,7 +48,8 @@ public class ValidLog {
 	@Test
 	public void test() throws Exception {
 		     Login.login(driver);
-		     System.out.println("Login successful");		   
+		     i++;
+		    	   
 	}
 
 }

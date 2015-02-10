@@ -22,7 +22,7 @@ import rtCampPageObject.Login;
 public class UpdateProfile
 {
 	private WebDriver driver;
-
+    int i=0;
 	@BeforeMethod
 	public void setUp() throws Exception
 	{
@@ -36,6 +36,14 @@ public class UpdateProfile
 
 	@AfterMethod
 	public void tearDown() throws Exception {
+		if(i==1)
+		{
+			System.out.println("Profile updated!!!!");
+		}
+		else
+		{
+			System.out.println("Test Fail!!!! Profile Not Updated");
+		}
 		Login.logout(driver);
 	}
 
@@ -74,8 +82,8 @@ public class UpdateProfile
 		 
 		 
 		 assertEquals("Changes saved.",driver.findElement(By.xpath("//*[@id='message']/p")).getText());
+		 i++;
 		 
-		 System.out.println("Profile updated");
 	}
 
 }

@@ -19,6 +19,7 @@ public class RegisterProcess {
 	
 	//initilize the varriable for webdriver
 	private static WebDriver driver;
+	int i=0;
 
 	@BeforeMethod
 	public void setUp() throws Exception {
@@ -33,6 +34,15 @@ public class RegisterProcess {
 
 	@AfterMethod
 	public void tearDown() throws Exception {
+		if(i==1)
+		{
+			System.out.println("Register Successful");
+		}
+		else
+		{
+			System.out.println("Test Fail!!!! Not Register Successful");
+		}
+	
 		//close the browser
         driver.close();
 	
@@ -82,11 +92,10 @@ public class RegisterProcess {
 				driver.findElement(By.id("signup_submit")).click();
 				//to check it is register successfully or not
 				assertEquals("Check Your Email To Activate Your Account!",driver.findElement(By.xpath("//*[@id='post-0']/header/h1")).getText());
-				
-				
 				//print the message on console
-				System.out.println("Register Successfully");
-		      //fail("Not yet implemented");
+				i++;
+				
+		        //fail("Not yet implemented");
 	}
 
 }

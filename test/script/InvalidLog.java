@@ -15,6 +15,7 @@ public class InvalidLog
 {
 	//create a instance of WebDriver interface
    private WebDriver driver;
+   int i=0;
 
    @BeforeMethod
 public void setUp() throws Exception {
@@ -28,12 +29,22 @@ public void setUp() throws Exception {
 
 	@AfterMethod
 	public void tearDown() throws Exception {
+		
+		if(i==1)
+		{
+			System.out.println("login error!!!! test pass");
+		}
+		else
+		{
+			System.out.println("Test Fail!!!!");
+		}
 		//close the driver
 		driver.close();
 	}
 
 	@Test
-	public void test() {
+	public void test()throws Exception {
+	
 		//click on log in text
 		driver.findElement(By.linkText("Log in")).click();
 		//put the user name
@@ -45,8 +56,11 @@ public void setUp() throws Exception {
 		//verify the error 
 		assertEquals("ERROR: Invalid username. Lost your password?",driver.findElement(By.id("login_error")).getText());
 		//print the message on console
-		System.out.println("login error!!!! test pass");
-		
-	}
+		i++;
 
+ }
+	
+	
+
+	 
 }

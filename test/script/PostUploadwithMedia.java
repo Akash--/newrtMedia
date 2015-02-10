@@ -25,7 +25,7 @@ import rtCampPageObject.Login;
 
 public class PostUploadwithMedia {
 	private WebDriver driver;
-
+    int i=0;
 	@BeforeMethod
 	public void setUp() throws Exception
 	{
@@ -41,6 +41,14 @@ public class PostUploadwithMedia {
 	@AfterMethod
 	public void tearDown() throws Exception
 	{
+		if(i==1)
+		{
+			System.out.println("POST UPLOADED!!!!!");
+		}
+		else
+		{
+			System.out.println("Test Fail!!!!Post Not Uploaded");
+		}
 		//click to the log out 
 		 Login.logout(driver);
 	}
@@ -91,7 +99,7 @@ public class PostUploadwithMedia {
 		//cilck on post update button
 	    driver.findElement(By.id("aw-whats-new-submit")).click();
 		
-		System.out.println("POST UPLOADED!!!!!");
+		i++;
 		//fail("Not yet implemented");
 		 
 		

@@ -25,7 +25,7 @@ import java.awt.event.*;
 
 public class UploadMediaFromClient {
 	private WebDriver driver;
-
+    int i=0;
 	@BeforeMethod
 	public void setUp() throws Exception
 	{
@@ -40,6 +40,15 @@ public class UploadMediaFromClient {
 
 	@AfterMethod
 	public void tearDown() throws Exception {
+		if(i==1)
+		{
+			System.out.println("File Upoaded!!!");
+		}
+		else
+		{
+			System.out.println("Test Fail!!!! File not Uploaded");
+		}
+		
 		  Login.logout(driver);
 	}
 
@@ -88,9 +97,7 @@ public class UploadMediaFromClient {
 		    Thread.sleep(3000);
 		    //cilck on start upload button
 		    driver.findElement(By.className("start-media-upload")).click();
-
-		    //print message on console
-		    System.out.println("File Upoaded!!!");
+             i++;
 	}
 
 }

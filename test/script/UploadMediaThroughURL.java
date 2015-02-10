@@ -26,7 +26,7 @@ import rtCampPageObject.Login;
 public class UploadMediaThroughURL
 {
    private WebDriver driver;
-   
+   int i=0;
 	@BeforeMethod
 	public void setUp() throws Exception 
 	{
@@ -39,6 +39,15 @@ public class UploadMediaThroughURL
 	}
 	@AfterMethod
 	public void tearDown() throws Exception {
+		if(i==1)
+		{
+			System.out.println("File Upoladed through URL");
+		}
+		else
+		{
+			System.out.println("Test Fail!!! File Not uploaded through url");
+		}
+		
 		 Login.logout(driver);
 
 	}
@@ -66,8 +75,8 @@ public class UploadMediaThroughURL
 				//click on start upload button
 		        driver.findElement(By.className("start-media-upload")).click();
 		        Thread.sleep(2000);
-		        //print the message on console
-		        System.out.println("File Upoladed through URL");
+		        i++;
+		       
 	}
 
 
