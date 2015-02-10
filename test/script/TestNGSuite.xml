@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="rtMedia" verbose="1" >
+  <test name="rtMedia" >
+    <classes>
+       <class name="script.RegisterProcess" />
+       <class name="script.VerifyRegistrationProcess"/>
+       <class name="script.ValidLog"/>
+       <class name="script.InvalidLog"/>
+       <class name="script.PostUploadwithMedia"/>
+       <class name="script.UpdateProfile"/>
+       <class name="script.UploadMediaFromClient"/>
+       <class name="script.UploadMediaThroughURL"/>
+       
+    </classes>
+  </test>
+</suite>
